@@ -15,6 +15,7 @@ public class ReorderAlertTest {
         ReorderThreshold reorderThreshold = product -> 18;
         ReorderChecker reorderChecker = new ReorderChecker(warehouse, reorderThreshold, reorderAlert);
         reorderChecker.onSale(811, 3);
+
         verify(reorderAlert, never()).alert();
     }
 }
