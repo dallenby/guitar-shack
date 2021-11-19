@@ -3,17 +3,17 @@ package com.guitarshack;
 public class ReorderChecker {
     private final Warehouse warehouse;
     private final ReorderThreshold reorderThreshold;
-    private final ReorderAlert reorderAlert;
+    private final Reorder reorder;
 
-    public ReorderChecker(Warehouse warehouse, ReorderThreshold reorderThreshold, ReorderAlert reorderAlert) {
+    public ReorderChecker(Warehouse warehouse, ReorderThreshold reorderThreshold, Reorder reorder) {
         this.warehouse = warehouse;
         this.reorderThreshold = reorderThreshold;
-        this.reorderAlert = reorderAlert;
+        this.reorder = reorder;
     }
 
     public void onSale(int productId, int quantity) {
         Product product = warehouse.getProduct(productId);
-        Boolean reorder = (product.getStock() - quantity) < reorderThreshold.calculate(product);
-        if(reorder) reorderAlert.alert();
+        Boolean reorder = (product.getStock() - quantity) <= reorderThreshold.calculate(product);
+        if(reorder) this.reorder.alert();
     }
 }

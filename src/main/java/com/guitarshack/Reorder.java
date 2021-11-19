@@ -1,5 +1,5 @@
 package com.guitarshack;
 
-public interface ReorderAlert {
+public interface Reorder {
     void alert();
 }

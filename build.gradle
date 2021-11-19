@@ -12,6 +12,7 @@ repositories {
 dependencies {
     implementation 'org.mockito:mockito-core:4.0.0'
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'pl.pragmatists:JUnitParams:1.0.4'
 
 }
 
