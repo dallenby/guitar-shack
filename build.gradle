@@ -10,9 +10,5 @@ repositories {
 }
 
 dependencies {
-    implementation 'junit:junit:4.13.1'
-}
-
-test {
-    useJUnitPlatform()
+    testImplementation 'junit:junit:4.13.1'
 }
