@@ -24,9 +24,9 @@ public class ReorderTest {
 
     @Test
     @Parameters({"3", "2"})
-    public void productDoesNeedReordering(int quantity){
+    public void productDoesNeedReordering(int quantity) {
         Reorder reorder = mock(Reorder.class);
-        Warehouse warehouse = id -> new Product(811,10);
+        Warehouse warehouse = id -> new Product(811, 10);
         ReorderThreshold reorderThreshold = product -> 8;
         ReorderChecker reorderChecker = new ReorderChecker(warehouse, reorderThreshold, reorder);
         reorderChecker.onSale(811, quantity);
@@ -35,9 +35,9 @@ public class ReorderTest {
     }
 
     @Test
-    public void productHasAlreadyBeenReordered(){
+    public void productHasAlreadyBeenReordered() {
         Reorder reorder = mock(Reorder.class);
-        Warehouse warehouse = id -> new Product(811,10 );
+        Warehouse warehouse = id -> new Product(811, 10);
         ReorderThreshold reorderThreshold = product -> 18;
         ReorderChecker reorderChecker = new ReorderChecker(warehouse, reorderThreshold, reorder);
         reorderChecker.onSale(811, 3);
