@@ -13,4 +13,8 @@ public class Product {
     public int getStock() {
         return stock;
     }
+
+    public int getId() {
+        return id;
+    }
 }
