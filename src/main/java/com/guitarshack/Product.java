@@ -6,13 +6,16 @@ public class Product {
     private final String description;
     private final int minimumOrder;
     private final int rackSpace;
+    private final int leadTime;
 
-    public Product(int id, int stock, String description, int minimumOrder, int rackSpace) {
+    public Product(int id, int stock, String description, int minimumOrder, int rackSpace, int leadTime) {
         this.id = id;
         this.stock = stock;
         this.description = description;
         this.minimumOrder = minimumOrder;
         this.rackSpace = rackSpace;
+
+        this.leadTime = leadTime;
     }
 
     public int getStock() {
@@ -33,5 +36,9 @@ public class Product {
 
     public int getRackSpace() {
         return rackSpace;
+    }
+
+    public int getLeadTime() {
+        return leadTime;
     }
 }

@@ -14,7 +14,7 @@ public class ReorderChecker {
     public void onSale(int productId, int quantity) {
         Product product = warehouse.getProduct(productId);
 
-        int threshold = reorderThreshold.calculate(product);
+        double threshold = reorderThreshold.calculate(product);
         if (product.getStock() > threshold
                 && (product.getStock() - quantity) <= threshold) {
             this.reorder.alert(new MessageBuilder().build(product));

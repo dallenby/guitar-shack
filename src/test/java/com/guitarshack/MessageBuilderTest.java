@@ -13,7 +13,7 @@ public class MessageBuilderTest {
     @Before
     public void setup() {
         MessageBuilder messageBuilder = new MessageBuilder();
-        Product product = new Product(811, 10, "Epiphone Les Paul Classic In Worn Heritage Cherry Sunburst", 20, 30);
+        Product product = new Product(811, 10, "Epiphone Les Paul Classic In Worn Heritage Cherry Sunburst", 20, 30, 20);
         message = messageBuilder.build(product);
     }
 
