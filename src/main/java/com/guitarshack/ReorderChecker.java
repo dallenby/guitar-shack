@@ -17,7 +17,7 @@ public class ReorderChecker {
         int threshold = reorderThreshold.calculate(product);
         if (product.getStock() > threshold
                 && (product.getStock() - quantity) <= threshold) {
-            this.reorder.alert();
+            this.reorder.alert(new MessageBuilder().build(product));
         }
     }
 }

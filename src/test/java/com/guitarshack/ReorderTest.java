@@ -19,19 +19,20 @@ public class ReorderTest {
         ReorderChecker reorderChecker = new ReorderChecker(warehouse, reorderThreshold, reorder);
         reorderChecker.onSale(811, 3);
 
-        verify(reorder, never()).alert();
+        verify(reorder, never()).alert(any());
     }
 
     @Test
     @Parameters({"3", "2"})
     public void productDoesNeedReordering(int quantity) {
         Reorder reorder = mock(Reorder.class);
-        Warehouse warehouse = id -> new Product(811, 10, "Epiphone Les Paul Classic In Worn Heritage Cherry Sunburst", 20, 30);
-        ReorderThreshold reorderThreshold = product -> 8;
+        Product product = new Product(811, 10, "Epiphone Les Paul Classic In Worn Heritage Cherry Sunburst", 20, 30);
+        Warehouse warehouse = id -> product;
+        ReorderThreshold reorderThreshold = soldProduct -> 8;
         ReorderChecker reorderChecker = new ReorderChecker(warehouse, reorderThreshold, reorder);
         reorderChecker.onSale(811, quantity);
 
-        verify(reorder).alert();
+        verify(reorder).alert(new MessageBuilder().build(product));
     }
 
     @Test
@@ -42,6 +43,6 @@ public class ReorderTest {
         ReorderChecker reorderChecker = new ReorderChecker(warehouse, reorderThreshold, reorder);
         reorderChecker.onSale(811, 3);
 
-        verify(reorder, never()).alert();
+        verify(reorder, never()).alert(any());
     }
 }
