@@ -1,0 +1,1 @@
+./gradlew test && git commit -am "TCR auto-commit" || git reset --hard
