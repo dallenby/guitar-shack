@@ -4,16 +4,16 @@ public class Product {
     private final int id;
     private final int stock;
     private final String description;
-    private final int minimumOrder;
-    private final int rackSpace;
+    private final int minOrder;
+    private final int rackspace;
     private final int leadTime;
 
-    public Product(int id, int stock, String description, int minimumOrder, int rackSpace, int leadTime) {
+    public Product(int id, int stock, String description, int minOrder, int rackspace, int leadTime) {
         this.id = id;
         this.stock = stock;
         this.description = description;
-        this.minimumOrder = minimumOrder;
-        this.rackSpace = rackSpace;
+        this.minOrder = minOrder;
+        this.rackspace = rackspace;
 
         this.leadTime = leadTime;
     }
@@ -30,12 +30,12 @@ public class Product {
         return description;
     }
 
-    public int getMinimumOrder() {
-        return minimumOrder;
+    public int getMinOrder() {
+        return minOrder;
     }
 
-    public int getRackSpace() {
-        return rackSpace;
+    public int getRackspace() {
+        return rackspace;
     }
 
     public int getLeadTime() {

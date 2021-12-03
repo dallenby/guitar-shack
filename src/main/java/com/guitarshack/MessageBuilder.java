@@ -6,8 +6,8 @@ public class MessageBuilder {
         return String.format("Please order more of product %s, %s. Minimum order is %s, available rack space is %s.",
                 product.getId(),
                 product.getDescription(),
-                product.getMinimumOrder(),
-                product.getRackSpace()
+                product.getMinOrder(),
+                product.getRackspace()
         );
     }
 }
