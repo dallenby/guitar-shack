@@ -1,5 +1,9 @@
-package com.guitarshack;
+package com.guitarshack.unit;
 
+import com.guitarshack.LeadTimeReorderThreshold;
+import com.guitarshack.Product;
+import com.guitarshack.ReorderThreshold;
+import com.guitarshack.SalesPerDay;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;

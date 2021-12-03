@@ -1,5 +1,7 @@
-package com.guitarshack;
+package com.guitarshack.unit;
 
+import com.guitarshack.MessageBuilder;
+import com.guitarshack.Product;
 import org.junit.Before;
 import org.junit.Test;
 

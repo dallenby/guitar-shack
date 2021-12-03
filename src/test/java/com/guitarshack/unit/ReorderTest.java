@@ -1,5 +1,6 @@
-package com.guitarshack;
+package com.guitarshack.unit;
 
+import com.guitarshack.*;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Test;

@@ -1,5 +1,6 @@
-package com.guitarshack;
+package com.guitarshack.unit;
 
+import com.guitarshack.*;
 import org.junit.Before;
 import org.junit.Test;
 

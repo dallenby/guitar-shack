@@ -1,5 +1,9 @@
-package com.guitarshack;
+package com.guitarshack.contract;
 
+import com.guitarshack.Api;
+import com.guitarshack.Product;
+import com.guitarshack.ProductWarehouse;
+import com.guitarshack.Warehouse;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
