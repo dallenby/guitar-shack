@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 
 import static org.mockito.Mockito.*;
 
-
 @RunWith(JUnitParamsRunner.class)
 public class ReorderTest {
 
