@@ -39,7 +39,7 @@ public class ReorderTest {
     @Test
     public void productHasAlreadyBeenReordered() {
         Reorder reorder = mock(Reorder.class);
-        Warehouse warehouse = id -> new Product(811, 10, "Epiphone Les Paul Classic In Worn Heritage Cherry Sunburst", 20, 30, 20);
+        Warehouse warehouse = id -> new Product(811, 18, "Epiphone Les Paul Classic In Worn Heritage Cherry Sunburst", 20, 30, 20);
         ReorderThreshold reorderThreshold = product -> 18;
         ReorderChecker reorderChecker = new ReorderChecker(warehouse, reorderThreshold, reorder);
         reorderChecker.onSale(811, 3);
