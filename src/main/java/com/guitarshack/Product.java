@@ -14,7 +14,6 @@ public class Product {
         this.description = description;
         this.minOrder = minOrder;
         this.rackspace = rackspace;
-
         this.leadTime = leadTime;
     }
 

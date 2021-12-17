@@ -19,22 +19,29 @@ public class Api<T> {
     }
 
     public T get(String queryString) {
-        HttpRequest request = HttpRequest
+        HttpRequest request = buildRequest(queryString);
+        return send(request);
+    }
+
+    private T send(HttpRequest request) {
+        HttpClient client = HttpClient.newHttpClient();
+        T deserialised = null;
+        try {
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            deserialised = new Gson().fromJson(response.body(), typeClass);
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return deserialised;
+    }
+
+    private HttpRequest buildRequest(String queryString) {
+        return HttpRequest
                 .newBuilder()
                 .uri(URI.create(url + queryString))
                 .timeout(Duration.ofMinutes(1))
                 .header("Content-Type", "application/json")
                 .GET()
                 .build();
-
-        HttpClient client = HttpClient.newHttpClient();
-        T returnObject = null;
-        try {
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            returnObject = new Gson().fromJson(response.body(), typeClass);
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return returnObject;
     }
 }

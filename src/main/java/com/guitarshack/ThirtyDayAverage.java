@@ -3,6 +3,7 @@ package com.guitarshack;
 import java.time.LocalDate;
 
 public class ThirtyDayAverage implements SalesPerDay {
+    private static final int DATE_RANGE = 30;
     private final SalesHistory salesHistory;
     private final Today today;
 
@@ -13,7 +14,8 @@ public class ThirtyDayAverage implements SalesPerDay {
 
     @Override
     public double of(Product product) {
-        LocalDate saleDate = today.getDate();
-        return (double) salesHistory.total(product.getId(), saleDate.minusDays(30), saleDate) / 30.0;
+        LocalDate endDate = today.getDate();
+        LocalDate startDate = endDate.minusDays(DATE_RANGE);
+        return (double) salesHistory.total(product.getId(), startDate, endDate) / (double) DATE_RANGE;
     }
 }
