@@ -40,4 +40,12 @@ public class Product {
     public int getLeadTime() {
         return leadTime;
     }
+
+    public boolean needsReordering(int quantity, double threshold) {
+        return (getStock() - quantity) <= threshold;
+    }
+
+    public boolean onOrder(double threshold) {
+        return getStock() <= threshold;
+    }
 }

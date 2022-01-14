@@ -1,9 +1,6 @@
 package com.guitarshack.contract;
 
-import com.guitarshack.Api;
-import com.guitarshack.Product;
-import com.guitarshack.ProductWarehouse;
-import com.guitarshack.Warehouse;
+import com.guitarshack.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -17,7 +14,7 @@ public class WarehouseTest {
 
     @BeforeClass
     public static void setup() {
-        Warehouse warehouse = new ProductWarehouse(new Api<>("https://6hr1390c1j.execute-api.us-east-2.amazonaws.com/default/product", Product.class));
+        Warehouse warehouse = new ProductWarehouse(new WebApi<>("https://6hr1390c1j.execute-api.us-east-2.amazonaws.com/default/product", Product.class));
         product = warehouse.getProduct(811);
     }
 

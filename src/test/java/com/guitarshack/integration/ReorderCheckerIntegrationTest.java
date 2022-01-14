@@ -1,7 +1,6 @@
 package com.guitarshack.integration;
 
 import com.guitarshack.*;
-import net.bytebuddy.asm.Advice;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -18,7 +17,7 @@ public class ReorderCheckerIntegrationTest {
 
         ReorderChecker reorderChecker = new ReorderChecker(
                 new ProductWarehouse(
-                        new Api<Product>(
+                        new WebApi<Product>(
                                 "https://6hr1390c1j.execute-api.us-east-2.amazonaws.com/default/product",
                                 Product.class
                         )
@@ -26,7 +25,7 @@ public class ReorderCheckerIntegrationTest {
                 new LeadTimeReorderThreshold(
                         new ThirtyDayAverage(
                                 new ProductSalesHistory(
-                                        new Api<>(
+                                        new WebApi<>(
                                                 "https://gjtvhjg8e9.execute-api.us-east-2.amazonaws.com/default/sales",
                                                 Sales.class
                                         )

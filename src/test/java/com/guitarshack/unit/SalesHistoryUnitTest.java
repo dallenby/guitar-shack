@@ -14,14 +14,14 @@ import static org.mockito.Mockito.when;
 public class SalesHistoryUnitTest extends AbstractSalesHistoryTest {
     @Override
     protected SalesHistory createSalesHistory() {
-        Api<Sales> api = mock(Api.class);
+        Api<Sales> api = mock(WebApi.class);
         when(api.get(any())).thenReturn(new Sales(16));
         return new ProductSalesHistory(api);
     }
 
     @Test
     public void shouldReturnMinusOneWhenNoSalesTotalReturned(){
-        Api<Sales> api = mock(Api.class);
+        Api<Sales> api = mock(WebApi.class);
         when(api.get(any())).thenReturn(null);
         ProductSalesHistory productSalesHistory = new ProductSalesHistory(api);
         assertThat(productSalesHistory.total(811, LocalDate.now(), LocalDate.now()), equalTo(-1));
