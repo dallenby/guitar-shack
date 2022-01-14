@@ -25,8 +25,17 @@ public class Main {
 
             Map<String, String> parameters = queryParser.parse(query);
 
+            Integer productId = Integer.parseInt(parameters.get("productId"));
+            Integer quantity = Integer.parseInt(parameters.get("quantity"));
+            String s;
+            try{
+                reorderChecker.onSale(productId, quantity);
+                s = "200: OK";
+            } catch (Exception e){
+                s = "500: ERROR " + e.getMessage();
+                e.printStackTrace();
+            }
 
-            String s = query;
             exchange.sendResponseHeaders(200, s.getBytes().length);
             OutputStream response = exchange.getResponseBody();
             response.write(s.getBytes());
