@@ -22,4 +22,9 @@ public class SmsMessageBuilderTest {
         assertEquals("Daniel", messageBuilder.generateBody().get("sender"));
     }
 
+    @Test
+    public void convertBodyToString() {
+        assertEquals("{\"sender\":\"Daniel\",\"destination\":\"07582335830\",\"content\":\"test\"}", messageBuilder.generateBodyAsString());
+    }
+
 }

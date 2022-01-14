@@ -1,5 +1,7 @@
 package com.guitarshack;
 
+import com.google.gson.Gson;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,5 +22,9 @@ public class SmsMessageBuilder {
         body.put("destination", destination);
         body.put("sender", sender);
         return body;
+    }
+
+    public String generateBodyAsString() {
+        return new Gson().toJson(generateBody());
     }
 }
