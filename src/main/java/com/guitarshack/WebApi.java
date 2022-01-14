@@ -20,7 +20,13 @@ public class WebApi<T> implements Api<T> {
 
     @Override
     public T get(String queryString) {
-        HttpRequest request = buildRequest(queryString);
+        HttpRequest request = buildGetRequest(queryString);
+        return send(request);
+    }
+
+    @Override
+    public T post(String body, String authorisation) {
+        HttpRequest request = buildPostRequest(body, authorisation);
         return send(request);
     }
 
@@ -36,13 +42,24 @@ public class WebApi<T> implements Api<T> {
         return deserialised;
     }
 
-    private HttpRequest buildRequest(String queryString) {
+    private HttpRequest buildGetRequest(String queryString) {
         return HttpRequest
                 .newBuilder()
                 .uri(URI.create(url + queryString))
                 .timeout(Duration.ofMinutes(1))
                 .header("Content-Type", "application/json")
                 .GET()
+                .build();
+    }
+
+    private HttpRequest buildPostRequest(String body, String authorisation) {
+        return HttpRequest
+                .newBuilder()
+                .uri(URI.create(url))
+                .timeout(Duration.ofMinutes(1))
+                .header("Content-Type", "application/json")
+                .header("Authorization", authorisation)
+                .POST(HttpRequest.BodyPublishers.ofString(body))
                 .build();
     }
 }
