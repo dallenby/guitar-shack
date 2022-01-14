@@ -9,7 +9,11 @@ public class QueryParser {
         String[] queryParameters = query.split("&");
         for(String parameter : queryParameters){
             String[] parameters = parameter.split("=");
-            result.put(parameters[0], parameters[1]);
+            if(parameters.length > 1){
+                result.put(parameters[0], parameters[1]);
+            }else{
+                result.put(parameters[0], "");
+            }
         }
         return result;
     }

@@ -17,18 +17,20 @@ public class QueryParsingTest {
     @Before
     public void setup() {
         QueryParser queryParser = new QueryParser();
-        String query = "productId=123&quantity=12";
+        String query = "productId=123&quantity=12&blank=";
          queryParameters = queryParser.parse(query);
     }
 
     @Test
     public void QueryParserReturnsCorrectNumberOfParameters(){
-        assertThat(queryParameters.size(), equalTo(2));
+        assertThat(queryParameters.size(), equalTo(3));
     }
 
     @Test
     public void QueryParserReturnsCorrectParameters(){
         assertThat(queryParameters.get("productId"), equalTo("123"));
+        assertThat(queryParameters.get("quantity"), equalTo("12"));
+        assertThat(queryParameters.get("blank"), equalTo(""));
     }
 
 }
