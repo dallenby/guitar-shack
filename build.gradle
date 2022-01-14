@@ -1,14 +1,5 @@
 plugins {
     id 'java'
-    id 'info.solidsoft.pitest' version '1.7.0'
-}
-
-pitest {
-    targetClasses = ['com.guitarshack.*']
-    pitestVersion = '1.7.0'
-    threads = 4
-    outputFormats = ['HTML']
-    timestampedReports = true
 }
 
 group 'org.example'
