@@ -5,7 +5,7 @@ import java.time.Month;
 
 public class ReorderCheckerBuilder {
     public ReorderChecker build() {
-        Reorder reorder = (message) -> {};
+        Reorder reorder = new ReorderProduct();
 
         return new ReorderChecker(
             new ProductWarehouse(
