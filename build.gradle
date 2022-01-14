@@ -23,3 +23,9 @@ test {
         events "passed", "skipped", "failed", "standardOut", "standardError"
     }
 }
+
+jar {
+    manifest {
+        attributes "Main-Class": "com.guitarshack.Main"
+    }
+}
